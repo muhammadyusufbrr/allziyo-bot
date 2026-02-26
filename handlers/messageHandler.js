@@ -1,7 +1,7 @@
 const keyboards = require("../keyboards/menus");
 const axios = require("axios");
 const backendService = require("../services/backendService");
-const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:5000/api";
+const BACKEND_URL = process.env.BACKEND_URL || "https://api.allziyo.uz/api";
 
 const userLangs = {}; 
 const userSteps = {}; 
