@@ -13,30 +13,26 @@ module.exports = {
     // ------------------------------------------------
     // 🇺🇿 O'ZBEKCHA MENYULAR
     // ------------------------------------------------
-
-    // Kontakt so'rash (UZ)
     contactKeyboard: {
         reply_markup: {
             keyboard: [
-                [{ text: "📱 Telefon raqamni yuborish", request_contact: true }]
-            ],
-            resize_keyboard: true,
-            one_time_keyboard: true
-        }
-    },
-
-    // Asosiy menyu (UZ)
-    mainMenu: {
-        reply_markup: {
-            keyboard: [
-                [{ text: "🎁 So'vg'a olish" }, { text: "📦 Katalog" }],
-                [{ text: "❓ Savol berish" }]
+                [{ text: "📱 Telefon raqamni yuborish", request_contact: true }],
+                [{ text: "⬅️ Orqaga" }] // 🔥 QO'SHILDI
             ],
             resize_keyboard: true
         }
     },
 
-    // Orqaga qaytish (UZ)
+    mainMenu: {
+        reply_markup: {
+            keyboard: [
+                [{ text: "🎁 So'vg'a olish" }, { text: "❓ Savol yozish" }],
+                [{ text: "⬅️ Orqaga" }] // 🔥 QO'SHILDI
+            ],
+            resize_keyboard: true
+        }
+    },
+
     backKeyboard: {
         reply_markup: {
             keyboard: [
@@ -46,57 +42,35 @@ module.exports = {
         }
     },
 
-    // Web App (UZ)
-    webAppButton: {
-        reply_markup: {
-            inline_keyboard: [
-                [{ text: "Do'konni ochish 🛍", web_app: { url: "https://google.com" } }] 
-            ]
-        }
-    },
-
     // ------------------------------------------------
-    // 🇷🇺 RUSCHA MENYULAR (YANGI)
+    // 🇷🇺 RUSCHA MENYULAR
     // ------------------------------------------------
-
-    // Kontakt so'rash (RU)
     contactKeyboardRu: {
         reply_markup: {
             keyboard: [
-                [{ text: "📱 Отправить номер телефона", request_contact: true }]
-            ],
-            resize_keyboard: true,
-            one_time_keyboard: true
-        }
-    },
-
-    // Asosiy menyu (RU)
-    mainMenuRu: {
-        reply_markup: {
-            keyboard: [
-                [{ text: "🎁 Получить подарок" }, { text: "📦 Каталог" }],
-                [{ text: "❓ Задать вопрос" }]
+                [{ text: "📱 Отправить номер телефона", request_contact: true }],
+                [{ text: "⬅️ Назад" }] // 🔥 QO'SHILDI
             ],
             resize_keyboard: true
         }
     },
 
-    // Orqaga qaytish (RU)
+    mainMenuRu: {
+        reply_markup: {
+            keyboard: [
+                [{ text: "🎁 Получить подарок" }, { text: "❓ Задать вопрос" }],
+                [{ text: "⬅️ Назад" }] // 🔥 QO'SHILDI
+            ],
+            resize_keyboard: true
+        }
+    },
+
     backKeyboardRu: {
         reply_markup: {
             keyboard: [
                 [{ text: "⬅️ Назад" }]
             ],
             resize_keyboard: true
-        }
-    },
-
-    // Web App (RU)
-    webAppButtonRu: {
-        reply_markup: {
-            inline_keyboard: [
-                [{ text: "Открыть магазин 🛍", web_app: { url: "https://google.com" } }] 
-            ]
         }
     }
 };

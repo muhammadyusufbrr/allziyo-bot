@@ -43,28 +43,37 @@ async function sendReview(telegramId, imageStream, comment) {
     }
 }
 
-// 🔥 4. PROMOKODLARNI "AQLLI" OLISH (YANGILANDI)
+// 🔥 4. PROMOKODLARNI QAT'IY FOIZ BO'YICHA OLISH (5% va 10%)
 async function getPromos() {
     try {
-        // Admin panel ishlatadigan API ga murojaat qilamiz
         const response = await axios.get(`${BACKEND_URL}/promocodes`);
-        const allPromos = response.data.data; // Bazadagi hamma promokodlar ro'yxati
+        const allPromos = response.data.data || []; 
 
-        // 1. "Start" uchun 5% lik kodni qidiramiz
+        // 1. Faqatgina 5% lik kodni qidiramiz (Start uchun)
         const welcomeObj = allPromos.find(p => p.percentage === 5);
         
-        // 2. "Registratsiya" uchun 15% (yoki 10%) lik kodni qidiramiz
-        const registerObj = allPromos.find(p => p.percentage === 15 || p.percentage === 10);
+        // 2. Faqatgina 10% lik kodni qidiramiz (Kontakt uchun)
+        const registerObj = allPromos.find(p => p.percentage === 10);
 
         return {
-            // Agar bazada topilsa o'shani olamiz, topilmasa "Zaxira" kodni beramiz
-            welcomePromo: welcomeObj ? welcomeObj.name : "WELCOME5",
-            registerPromo: registerObj ? registerObj.name : "SUPER15"
+            welcomePromo: { 
+                // Agar 5% lik kod topilsa shuni beradi, bo'lmasa zaxira "WELCOME5" ni beradi
+                code: welcomeObj ? welcomeObj.name : "WELCOME5", 
+                percent: welcomeObj ? welcomeObj.percentage : 5 
+            },
+            registerPromo: { 
+                // Agar 10% lik kod topilsa shuni beradi, bo'lmasa zaxira "SUPER10" ni beradi
+                code: registerObj ? registerObj.name : "SUPER10", 
+                percent: registerObj ? registerObj.percentage : 10 
+            }
         };
     } catch (error) {
         console.error('Get Promo Error:', error.message);
-        // Backend o'chsa zaxira:
-        return { welcomePromo: "WELCOME5", registerPromo: "SUPER15" };
+        // API ishlamay qolsa, qotib qolmasligi uchun default qiymatlar
+        return { 
+            welcomePromo: { code: "WELCOME5", percent: 5 }, 
+            registerPromo: { code: "SUPER10", percent: 10 } 
+        };
     }
 }
 

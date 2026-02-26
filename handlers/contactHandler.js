@@ -15,7 +15,7 @@ module.exports = (bot) => {
 
         // 3. Xabarni chiroyli snippet (nusxa olinadigan) formatda yuboramiz
         await bot.sendMessage(chatId, 
-            `Rahmat! ✅ Ro'yxatdan muvaffaqiyatli o'tdingiz.\n\nSizga **15% lik** maxsus promokod:\n\n\`${promoCode}\`\n\n_👆 Nusxa olish uchun kod ustiga bosing._`, 
+            `Rahmat! ✅ Ro'yxatdan muvaffaqiyatli o'tdingiz.\n\nSizga **10% lik** maxsus promokod:\n\n\`${promoCode}\`\n\n_👆 Nusxa olish uchun kod ustiga bosing._`, 
             { parse_mode: 'Markdown' }
         );
 
